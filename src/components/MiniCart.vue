@@ -44,8 +44,8 @@ import { mapState, mapGetters, mapActions } from "vuex";
 export default {
   name: "MinCart",
   computed: {
-    ...mapState(["cart"]),
-    ...mapGetters(["getCartCount"]),
+    ...mapState("cart", ["cart"]),
+    ...mapGetters("cart", ["getCartCount"]),
     // cart() {
     //   return this.$store.state.cart;
     // },
@@ -54,7 +54,8 @@ export default {
     // },
   },
   methods: {
-    ...mapActions(["removeProduct", "removeAllItemFromCart"]),
+    ...mapActions("product", ["removeProduct"]),
+    ...mapActions("cart", ["removeAllItemFromCart"]),
     // removeProduct(product) {
     //   this.$store.dispatch("removeProduct", product);
     // },
