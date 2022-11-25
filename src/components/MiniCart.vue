@@ -54,8 +54,7 @@ export default {
     // },
   },
   methods: {
-    ...mapActions("product", ["removeProduct"]),
-    ...mapActions("cart", ["removeAllItemFromCart"]),
+    ...mapActions("cart", ["removeProduct", "removeAllItemFromCart"]),
     // removeProduct(product) {
     //   this.$store.dispatch("removeProduct", product);
     // },

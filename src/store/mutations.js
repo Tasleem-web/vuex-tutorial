@@ -1,25 +1,10 @@
-// export const SET_PRODUCTS = (state, products) => {
-//     state.products = products
-// }
+export const PUSH_NOTIFICATION = (state, notification) => {
+    state.notifications.push({
+        ...notification,
+        id: (Math.random().toString(36) + Date.now().toString(36)).substr(2)
+    })
+}
 
-// export const SET_PRODUCT = (state, product) => {
-//     state.product = product
-// }
-
-// export const REMOVE_PRODUCT = (state, product) => {
-//     state.cart = state.cart.filter(item => item.product.id !== product.id);
-// }
-
-// export const ADD_TO_CART = (state, { product, quantity }) => {
-//     let productInCart = state.cart.find(item => item.product.id === product.id);
-//     if (productInCart) {
-//         productInCart.quantity += quantity;
-//         return;
-//     }
-
-//     state.cart.push({ product, quantity })
-// }
-
-// export const REMOVE_ALL_ITEMS_FROM_CART = (state) => {
-//     state.cart = [];
-// }
+export const REMOVE_NOTIFICATION = (state, notificationToRemove) => {
+    state.notifications = state.notifications.filter(notification => notification.id !== notificationToRemove.id)
+}

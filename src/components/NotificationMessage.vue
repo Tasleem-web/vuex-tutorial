@@ -1,0 +1,52 @@
+<template>
+  <div
+    :class="typeClass"
+    class="alert alert-dismissible fade show"
+    role="alert"
+  >
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+    {{ notification.message }}
+  </div>
+</template>
+
+<script>
+import { mapActions } from "vuex";
+
+export default {
+  name: "NotificationMessage",
+  props: ["notification"],
+
+  data() {
+    return {
+      timeout: null,
+    };
+  },
+
+  computed: {
+    typeClass() {
+      return `alert-${this.notification.type}`;
+    },
+  },
+
+  created() {
+    this.timeout = setTimeout(() => {
+      this.removeNotification(this.notification);
+    }, 3000);
+  },
+
+  beforeUnmount() {
+    clearTimeout(this.timeout);
+  },
+
+  methods: {
+    ...mapActions(["removeNotification"]),
+  },
+};
+</script>
+
+<style scoped></style>

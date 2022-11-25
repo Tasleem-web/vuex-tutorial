@@ -12,7 +12,3 @@ export const getProduct = ({ commit }, id) => {
         commit('SET_PRODUCT', resp.data)
     })
 }
-
-export const removeProduct = ({ commit }, product) => {
-    commit('REMOVE_PRODUCT', product)
-}
