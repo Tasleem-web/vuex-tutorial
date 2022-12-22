@@ -1,8 +1,8 @@
 <template>
-  <div
-    class="dropdown-menu"
-    style="min-width: 300px; right: 0; left: auto"
-    aria-labelledby="triggerId"
+  <div 
+  class="dropdown-menu" 
+  style="min-width: 300px; right: 0; left: auto" 
+  aria-labelledby="triggerId"
   >
     <div v-for="item in cart" :key="item?.product?.id">
       <div class="p-2 d-flex justify-content-between">
@@ -12,12 +12,12 @@
         </div>
         <div>
           <a
-            style="color: blue"
-            href="#"
+           style="color: blue" 
+           href="#"
             class="badge badge-dark"
             @click.prevent="removeProduct(item.product)"
             >remove</a
-          >
+            >
         </div>
       </div>
       <hr />
@@ -25,11 +25,12 @@
     <div class="p-2 d-flex justify-content-between">
       <div>Total: ${{ getCartCount }}</div>
       <div>
-        <a
-          style="color: blue"
-          href="#"
-          class="badge badge-dark"
-          @click.prevent="removeAllItemFromCart()"
+        <a 
+        style="color: blue" 
+        href="#" 
+        class="badge badge-dark" 
+        @click.prevent="removeAllItemFromCart()"
+        :disabled="getCartCount == 0"
         >
           Clear Cart
         </a>
@@ -71,5 +72,12 @@ export default {
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+a[disabled=true] {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  color: #ccc !important;
 }
 </style>
