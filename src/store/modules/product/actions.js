@@ -2,7 +2,7 @@ import Product from '../../../API/product';
 
 export const getProducts = ({ commit }) => {
     Product.all().then(resp => {
-        commit('SET_PRODUCTS', resp.data)
+        commit('SET_PRODUCTS', resp.data.products)
     })
 }
 
