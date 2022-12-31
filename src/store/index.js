@@ -7,6 +7,7 @@ import * as actions from './actions'
 
 import product from './modules/product';
 import cart from './modules/cart';
+import auth from './modules/auth';
 
 export default createStore({
     state,
@@ -15,6 +16,7 @@ export default createStore({
     actions,
     modules: {
         product,
-        cart
+        cart,
+        auth,
     }
 })

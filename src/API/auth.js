@@ -1,8 +1,8 @@
 import api from './api';
 
 export default {
-    all() {
-        return api.get('api/product');
+    login(payload) {
+        return api.post(`vendor/login`, payload);
     },
     show(id) {
         return api.get(`products/${id}`);
